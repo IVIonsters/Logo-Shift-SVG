@@ -42,3 +42,22 @@ const userInput = [
         default: "teal",
     },
 ];
+
+// Object declaration for the shape
+const shapeObject = {
+    Circle: Circle,
+    Triangle: Triangle,
+    Square: Square,
+};
+
+// Function to create the SVG file
+
+// Define shape class with color constructor option
+
+// Return the SVG string
+
+// Write the SVG string to a file
+
+//Initialize the application
+
+//call the function to initialize the application
