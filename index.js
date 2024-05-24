@@ -51,11 +51,21 @@ const shapeObject = {
 };
 
 // Function to create the SVG file
+function svgGenerator(responses) {
+    const {textCharacters, textColor, shape, backgroundColor} = responses;
+    const shapeOption = shapeClasses[shape];
+    const shapeObject = new shapeOption();
+
 
 // Define shape class with color constructor option
+shapeObject.setColor(backgroundColor);
 
 // Return the SVG string
-
+return `<svg width="400" height="300" viewbox="0 0 400 300' xmlns="http://www.w3.org/2000/svg">;
+    ${shapeObject.render()}
+    <text x="50%" y="50%" text-anchor="middle" fill="${textColor}">${textCharacters}</text>
+    </svg>`;
+}
 // Write the SVG string to a file
 
 //Initialize the application
