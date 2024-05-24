@@ -1,7 +1,9 @@
 // Required for the application to run
 const inquirer = require("inquirer")
 const fs = require("fs")
-const {Circle, Triangle, Square} = require("./lib/shapes")
+const {Circle, Triangle, Square} = require("./lib/shapes");
+const { error } = require("console");
+const requiredName = "./examples/require.svg";
 
 // Prompt the user for the input. 
 // Ask for Text Characters, Text Color, Background Color, and Shape
@@ -67,7 +69,21 @@ return `<svg width="400" height="300" viewbox="0 0 400 300' xmlns="http://www.w3
     </svg>`;
 }
 // Write the SVG string to a file
+function fileCreation(requiredName, data) {
+    fs.writeFile (requiredName, data, (error) => 
+    error ? console.error(error) : console.log("File created successfully!"));
+}
 
 //Initialize the application
+function init() {
+    inquirer.prompt(userInput)
+    .then((responses) => {
+        const svgString = svgGenerator(responses);
+        fileCreation(requiredName, svgString);
+    })
+    .catch((error) => console.error("Error SVG not generated",error));
+}
+
 
 //call the function to initialize the application
+init();
