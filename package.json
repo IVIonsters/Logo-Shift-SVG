@@ -1,19 +1,7 @@
 {
-  "name": "logo-shift-svg",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "example": "examples",
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "inquirer": "^9.2.20"
+    "express": "^4.19.2",
+    "inquirer": "^9.2.22",
+    "node": "^18.20.3"
   }
 }

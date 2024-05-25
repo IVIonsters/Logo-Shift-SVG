@@ -1,5 +1,5 @@
 // Required for the application to run
-const inquirer = require("inquirer")
+inquirer = require("inquirer");
 const fs = require("fs")
 const {Circle, Triangle, Square} = require("./lib/shapes");
 const { error } = require("console");
