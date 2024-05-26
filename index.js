@@ -63,10 +63,10 @@ function svgGenerator(responses) {
 shapeVersion.setColor(backgroundColor);
 
 // Return the SVG string
-return `<svg width="400" height="300" viewbox="0 0 400 300' xmlns="http://www.w3.org/2000/svg">;
+return `<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
     ${shapeVersion.render()}
-    <text x="50%" y="50%" text-anchor="middle" fill="${textColor}">${textCharacters}</text>
-    </svg>`;
+    <text x="50" y="50" dy=".3em" text-anchor="middle" fill="${textColor}">${textCharacters}</text>
+</svg>`;
 }
 // Write the SVG string to a file
 function fileCreation(requiredName, data) {
