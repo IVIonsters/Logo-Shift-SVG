@@ -1,8 +1,7 @@
 // Required for the application to run
-inquirer = require("inquirer");
+const inquirer = require("inquirer");
 const fs = require("fs")
 const {Circle, Triangle, Square} = require("./lib/shapes");
-const { error } = require("console");
 const requiredName = "./examples/require.svg";
 
 // Prompt the user for the input. 
@@ -55,16 +54,16 @@ const shapeObject = {
 // Function to create the SVG file
 function svgGenerator(responses) {
     const {textCharacters, textColor, shape, backgroundColor} = responses;
-    const shapeOption = shapeClasses[shape];
-    const shapeObject = new shapeOption();
+    const shapeOption = shapeObject[shape];
+    const shapeVersion = new shapeOption();
 
 
 // Define shape class with color constructor option
-shapeObject.setColor(backgroundColor);
+shapeVersion.setColor(backgroundColor);
 
 // Return the SVG string
 return `<svg width="400" height="300" viewbox="0 0 400 300' xmlns="http://www.w3.org/2000/svg">;
-    ${shapeObject.render()}
+    ${shapeVersion.render()}
     <text x="50%" y="50%" text-anchor="middle" fill="${textColor}">${textCharacters}</text>
     </svg>`;
 }
