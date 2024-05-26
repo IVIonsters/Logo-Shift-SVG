@@ -2,6 +2,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs")
 const {Circle, Triangle, Square} = require("./lib/shapes");
+const { default: Choices } = require("inquirer/lib/objects/choices");
 const requiredName = "./examples/require.svg";
 
 // Prompt the user for the input. 
@@ -30,9 +31,9 @@ const userInput = [
     },
     // Ask for Shape
     {
-        type: "input",
+        type: "list",
         message: "Please enter the shape you would like to display: ",
-        Options: ["Circle", "Triangle", "Square"],
+        choices: ["Circle", "Triangle", "Square"],
         name: "shape",
     },
     // Ask for Background Color
