@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs")
 const {Circle, Triangle, Square} = require("./lib/shapes");
 const { default: Choices } = require("inquirer/lib/objects/choices");
-const requiredName = "./examples/require.svg";
+const requiredName = "./examples/logo.svg";
 
 // Prompt the user for the input. 
 // Ask for Text Characters, Text Color, Background Color, and Shape
@@ -15,10 +15,10 @@ const userInput = [
         message: "Please enter the text characters you would like to display: ",
         name: "textCharacters",
         validate: function (value) {
-            if (value.length >= 2) {
+            if (value.length >= 1) {
                 return true;
             } else {
-                return "Please enter at least two characters.";
+                return "Please enter at least one characters.";
             }
         }
     },
@@ -63,15 +63,15 @@ function svgGenerator(responses) {
 shapeVersion.setColor(backgroundColor);
 
 // Return the SVG string
-return `<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+return `<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
     ${shapeVersion.render()}
-    <text x="50" y="50" dy=".3em" text-anchor="middle" fill="${textColor}">${textCharacters}</text>
+    <text x="150" y="100" dy=".3em" text-anchor="middle" fill="${textColor}">${textCharacters}</text>
 </svg>`;
 }
 // Write the SVG string to a file
 function fileCreation(requiredName, data) {
     fs.writeFile (requiredName, data, (error) => 
-    error ? console.error(error) : console.log("File created successfully!"));
+    error ? console.error(error) : console.log("Generated logo.svg","File created successfully!"));
 }
 
 //Initialize the application
